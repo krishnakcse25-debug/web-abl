@@ -1,0 +1,67 @@
+
+<html>
+<head>
+    <title>Student Feedback Form</title>
+</head>
+<body bgcolor="gray">
+<h3 align="center">Name = krishna kurve </h3>
+<h3 align="center">usn = CS25088</h3>
+
+    <h2>Student Feedback Form</h2>
+     <form>
+
+        <fieldset>
+            <legend>Student Information</legend>
+
+            Full Name:<br>
+            <input type="text" name="name" required><br><br>
+
+            Email:<br>
+            <input type="email" name="email" required><br><br>
+
+            Course Name:<br>
+            <input type="text" name="course" required><br><br>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Course Feedback</legend>
+
+            Rate the course (1 to 5):
+            <select name = "rate the course">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        </select><br><br>
+            Course Difficulty:<br>
+            <input type="radio" name="difficulty" value="Easy" required> Easy<br>
+            <input type="radio" name="difficulty" value="Medium"> Medium<br>
+            <input type="radio" name="difficulty" value="Hard"> Hard<br><br>
+
+            Your Comments:<br>
+            <textarea name="comments" rows="5" cols="40" required></textarea><br><br>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Additional Feedback</legend>
+
+            Suggestions for Improvement:<br>
+            <textarea name="improve" rows="4" cols="40" required></textarea><br><br>
+
+        </fieldset>
+
+        <br>
+
+        <input type="submit" value="Submit Feedback">
+         <input type="reset" value="Reset form">
+
+    </form>
+
+</body>
+</html>
