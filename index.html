@@ -2,6 +2,8 @@
 <head>
     <title>Student Feedback Form</title>
     <link href="styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 
 <body>
@@ -11,61 +13,82 @@
 
 <h2>Student Feedback Form</h2>
 
-<form>
+<body>
 
-    <fieldset>
-        <legend>Student Information</legend>
+<div class="container">
 
-        Full Name:<br>
-        <input type="text" name="name" required><br><br>
+<h1>Student Feedback System</h1>
+<h2>Name: Krishna Kurve | USN: CS25088</h2>
 
-        Email:<br>
-        <input type="email" name="email" required><br><br>
+<form id="form">
 
-        Course Name:<br>
-        <input type="text" name="course" required><br><br>
-    </fieldset>
+<fieldset>
+<legend>Student Info</legend>
 
-    <br>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email" required>
+<input type="text" id="course" placeholder="Course Name" required>
 
-    <fieldset>
-        <legend>Course Feedback</legend>
+</fieldset>
 
-        Rate the course (1 to 5):
-        <select name="rate">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select><br><br>
+<fieldset>
+<legend>Course Feedback</legend>
 
-        Course Difficulty:<br>
-        <input type="radio" name="difficulty" value="Easy" required> Easy<br>
-        <input type="radio" name="difficulty" value="Medium"> Medium<br>
-        <input type="radio" name="difficulty" value="Hard"> Hard<br><br>
+<label>Rating:</label>
+<select id="rating">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
 
-        Your Comments:<br>
-        <textarea name="comments" rows="5" required></textarea><br><br>
+<label>Difficulty:</label>
+<input type="radio" name="difficulty" value="Easy"> Easy
+<input type="radio" name="difficulty" value="Medium"> Medium
+<input type="radio" name="difficulty" value="Hard"> Hard
 
-    </fieldset>
+<textarea id="comments" placeholder="Your Comments"></textarea>
 
-    <br>
+</fieldset>
 
-    <fieldset>
-        <legend>Additional Feedback</legend>
+<fieldset>
+<legend>Suggestions</legend>
 
-        Suggestions for Improvement:<br>
-        <textarea name="improve" rows="4" required></textarea><br><br>
+<textarea id="suggestion" placeholder="Suggestions"></textarea>
 
-    </fieldset>
+</fieldset>
 
-    <br>
+<button type="submit">Submit Feedback</button>
 
-    <input type="submit" value="Submit Feedback">
-    <input type="reset" value="Reset Form">
+<p class="success" id="successMsg">✅ Feedback Submitted Successfully!</p>
 
 </form>
+
+</div>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(name.length < 3){
+        alert("Name must be at least 3 characters");
+        return;
+    }
+
+    if(!email.includes("@")){
+        alert("Enter valid email");
+        return;
+    }
+
+    document.getElementById("successMsg").style.display = "block";
+
+    this.reset();
+});
+</script>
 
 </body>
 </html>
