@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>Student Feedback Form</title>
+    <link href="styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+<h3>Name = krishna kurve</h3>
+<h3>USN = CS25088</h3>
+
+<h2>Student Feedback Form</h2>
+
+<body>
+
+<div class="container">
+
+<form id="form">
+
+<fieldset>
+<legend>Student Info</legend>
+
+<input type="text" name="student_name" placeholder="Your Name" required
+            oninput="this.style.borderColor = this.value ? '#4CAF50' : '#e0e0e0'">
+<input type="email" id="email" placeholder="Email" required>
+<input type="text" id="course" placeholder="Course Name" required>
+
+</fieldset>
+
+<fieldset>
+<legend>Course Feedback</legend>
+
+<label>Rating:</label>
+<select id="rating">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+<label>Difficulty:</label>
+<input type="radio" name="difficulty" value="Easy"> Easy
+<input type="radio" name="difficulty" value="Medium"> Medium
+<input type="radio" name="difficulty" value="Hard"> Hard
+
+<textarea name="feedback" placeholder="Your Feedback" required
+              oninput="this.style.borderColor = this.value ? '#4CAF50' : '#e0e0e0'"></textarea>
+
+</fieldset>
+
+<fieldset>
+<legend>Suggestions</legend>
+
+<textarea id="suggestion" placeholder="Suggestions"></textarea>
+
+</fieldset>
+
+
+     <button type="submit" id="submitBtn">
+          Submit Feedback
+     </button>
+
+<p class="success" id="successMsg">✅ Feedback Submitted Successfully!</p>
+
+</form>
+
+</div>
+
+<script>
+function validateForm(event) {
+    const form = event.target;
+    const name = form.querySelector('input[name="student_name"]');
+    const feedback = form.querySelector('textarea[name="feedback"]');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    if (!name.value.trim()) {
+        alert('Please enter your name');
+        name.focus();
+        event.preventDefault();
+        return false;
+    }
+    
+    if (!feedback.value.trim()) {
+        alert('Please enter your feedback');
+        feedback.focus();
+        event.preventDefault();
+        return false;
+    }
+    
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting...';
+    return true;
+
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if(name.length < 3){
+        alert("Name must be at least 3 characters");
+        return;
+    }
+
+    if(!email.includes("@")){
+        alert("Enter valid email");
+        return;
+    }
+
+    document.getElementById("successMsg").style.display = "block";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
