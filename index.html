@@ -1,120 +1,145 @@
+```html id="q5v6af"
+<!DOCTYPE html>
 <html>
 <head>
     <title>Student Feedback Form</title>
-    <link href="styles.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="krishna.css">
 </head>
-
-<body>
-
-<h3>Name = krishna kurve</h3>
-<h3>USN = CS25088</h3>
-
-<h2>Student Feedback Form</h2>
 
 <body>
 
 <div class="container">
 
-<form id="form">
+    <h3 align="center">Name = Krishna Kurve</h3>
+    <h3 align="center">USN = CS25088</h3>
 
-<fieldset>
-<legend>Student Info</legend>
+    <h2>Student Feedback Form</h2>
 
-<input type="text" name="student_name" placeholder="Your Name" required
-            oninput="this.style.borderColor = this.value ? '#4CAF50' : '#e0e0e0'">
-<input type="email" id="email" placeholder="Email" required>
-<input type="text" id="course" placeholder="Course Name" required>
+    <form id="feedbackForm">
 
-</fieldset>
+        <!-- Student Information -->
+        <fieldset>
+            <legend>Student Information</legend>
 
-<fieldset>
-<legend>Course Feedback</legend>
+            Full Name:<br>
+            <input type="text" id="name" name="name" required><br><br>
 
-<label>Rating:</label>
-<select id="rating">
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+            Email:<br>
+            <input type="email" id="email" name="email" required><br><br>
 
-<label>Difficulty:</label>
-<input type="radio" name="difficulty" value="Easy"> Easy
-<input type="radio" name="difficulty" value="Medium"> Medium
-<input type="radio" name="difficulty" value="Hard"> Hard
+            Course Name:<br>
+            <input type="text" id="course" name="course" required><br><br>
 
-<textarea name="feedback" placeholder="Your Feedback" required
-              oninput="this.style.borderColor = this.value ? '#4CAF50' : '#e0e0e0'"></textarea>
+            Department:<br>
+            <input type="text" name="department" required><br><br>
 
-</fieldset>
+            Semester:<br>
+            <select name="semester">
+                <option>1st Semester</option>
+                <option>2nd Semester</option>
+                <option>3rd Semester</option>
+                <option>4th Semester</option>
+                <option>5th Semester</option>
+                <option>6th Semester</option>
+                <option>7th Semester</option>
+                <option>8th Semester</option>
+            </select><br><br>
 
-<fieldset>
-<legend>Suggestions</legend>
+        </fieldset>
 
-<textarea id="suggestion" placeholder="Suggestions"></textarea>
+        <!-- Course Feedback -->
+        <fieldset>
+            <legend>Course Feedback</legend>
 
-</fieldset>
+            Rate the course (1 to 5):<br>
 
+            <select name="rating">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select><br><br>
 
-     <button type="submit" id="submitBtn">
-          Submit Feedback
-     </button>
+            Course Difficulty:<br>
 
-<p class="success" id="successMsg">✅ Feedback Submitted Successfully!</p>
+            <input type="radio" name="difficulty" value="Easy" required> Easy<br>
+            <input type="radio" name="difficulty" value="Medium"> Medium<br>
+            <input type="radio" name="difficulty" value="Hard"> Hard<br><br>
 
-</form>
+            Was the course content understandable?<br>
+
+            <input type="radio" name="understandable" value="Yes" required> Yes<br>
+            <input type="radio" name="understandable" value="No"> No<br><br>
+
+            How was the teaching quality?<br>
+
+            <select name="teaching">
+                <option>Excellent</option>
+                <option>Good</option>
+                <option>Average</option>
+                <option>Poor</option>
+            </select><br><br>
+
+            Was the syllabus completed on time?<br>
+
+            <input type="radio" name="syllabus" value="Yes" required> Yes<br>
+            <input type="radio" name="syllabus" value="No"> No<br><br>
+
+            Did the teacher encourage class participation?<br>
+
+            <input type="radio" name="participation" value="Yes" required> Yes<br>
+            <input type="radio" name="participation" value="No"> No<br><br>
+
+            Which learning resources were helpful?<br>
+
+            <input type="checkbox" name="resources" value="Notes"> Notes<br>
+            <input type="checkbox" name="resources" value="PPT"> PPT<br>
+            <input type="checkbox" name="resources" value="Videos"> Videos<br>
+            <input type="checkbox" name="resources" value="Books"> Books<br><br>
+
+            How satisfied are you with the course?<br>
+
+            <input type="range" min="1" max="10" name="satisfaction"><br><br>
+
+            Your Comments:<br>
+
+            <textarea id="comments" name="comments" rows="5" cols="40" required></textarea><br><br>
+
+        </fieldset>
+
+        <!-- Additional Feedback -->
+        <fieldset>
+            <legend>Additional Feedback</legend>
+
+            Suggestions for Improvement:<br>
+
+            <textarea name="improve" rows="4" cols="40" required></textarea><br><br>
+
+            Any additional remarks:<br>
+
+            <textarea name="remarks" rows="4" cols="40"></textarea><br><br>
+
+        </fieldset>
+
+        <button type="submit" id="submitBtn">
+            Submit Feedback
+        </button>
+
+        <button type="reset">
+            Reset Form
+        </button>
+
+        <p class="success" id="successMsg">
+            Feedback submitted successfully!
+        </p>
+
+    </form>
 
 </div>
 
-<script>
-function validateForm(event) {
-    const form = event.target;
-    const name = form.querySelector('input[name="student_name"]');
-    const feedback = form.querySelector('textarea[name="feedback"]');
-    const submitBtn = document.getElementById('submitBtn');
-    
-    if (!name.value.trim()) {
-        alert('Please enter your name');
-        name.focus();
-        event.preventDefault();
-        return false;
-    }
-    
-    if (!feedback.value.trim()) {
-        alert('Please enter your feedback');
-        feedback.focus();
-        event.preventDefault();
-        return false;
-    }
-    
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Submitting...';
-    return true;
-
-document.getElementById("form").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-
-    if(name.length < 3){
-        alert("Name must be at least 3 characters");
-        return;
-    }
-
-    if(!email.includes("@")){
-        alert("Enter valid email");
-        return;
-    }
-
-    document.getElementById("successMsg").style.display = "block";
-
-    this.reset();
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
+```
